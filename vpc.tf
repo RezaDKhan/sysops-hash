@@ -75,7 +75,8 @@ resource "aws_security_group" "nat" {
 }
 
 resource "aws_instance" "nat" {
-    ami = "ami-5aa8513a"  # this is a preconfigured ami to do NAT
+#    ami = "ami-5aa8513a"  # this is a preconfigured ami to do NAT
+    ami = "ami-bb69128b" # community NAT in us-west-2 
     availability_zone = "us-west-2a"
     instance_type = "t2.micro"
     key_name = "${var.aws_key_name}"

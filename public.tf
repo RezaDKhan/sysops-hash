@@ -36,6 +36,12 @@ resource "aws_security_group" "web" {
         protocol = "tcp"
         cidr_blocks = ["${var.private_subnet_cidr}"]
     }
+    egress { # Postgres
+        from_port = 5432
+        to_port = 5432
+        protocol = "tcp"
+        cidr_blocks = ["${var.private_subnet_cidr}"]
+    }
 
     vpc_id = "${aws_vpc.default.id}"
 
